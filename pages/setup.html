@@ -7,7 +7,7 @@
         <title>Sass How-To: Introduction</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="../css/prism.css">
-        <link href="css/index.css" rel="stylesheet">
+        <link href="../css/setup.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
@@ -16,14 +16,181 @@
 
                     <!-- Page Title -->
 
-                    <h1 class="page-title"> <span class="sass-emphasis"></span> </h1>
+                    <h1 class="page-title">Section 1: <span class="sass-emphasis">Setup</span> </h1>
 
                     <!-- Page Contents -->
 
-                    <section id="">
+                    <section id="overview">
                         <h2 class="sectionTitle">
-                            <!-- <span class="glyphicon glyphicon-question-sign"></span> -->
-                            <span class="sass-emphasis"></span>?
+                            <span class="glyphicon glyphicon-map-marker"></span>
+                             Part 1: <span class="sass-emphasis">Setup Overview</span>
+                        </h2>
+                        <p>In this section we're going to take care of getting you setup with the software you'll need to run Sass and complete each
+                        section of this how-to.  If you're just interested in learning the syntax of Sass and want to figure out the installation
+                        stuff on your own, feel free to skip to the <a href="#">next section</a> where we'll cover the basics of Sass.</p>
+                        <p>
+                            On this page, we'll be covering the following:
+                            <ul class="sass-emphasis">
+                                <li>Getting setup with Ruby and the Ruby based Sass.</li>
+                                <li>Getting setup with LibSass and the C based wrapper called SassC.</li>
+                                <li>Getting setup with Node.js and the Node-sass wrapper.</li>
+                            </ul>
+                        </p>
+                        <p>
+                            When you're done with this page, you'll have everything you need to complete this how-to in its entirety.  You may know know
+                            what each of the components is for yet but you'll be ready when you need them!  If you decided to skip the installs, have no
+                            fear.  You can follow along with the instructions in this how-to by using <a href="http://www.sassmeister.com" target="_blank">Sassmeister</a>,
+                            an awesome in-browser Sass playground.
+                        </p>
+                    </section>
+
+                    <section id="ruby-sass">
+                        <h2 class="sectionTitle">
+                            <span class="glyphicon glyphicon-ok"></span>
+                             Part 2: <span class="sass-emphasis">Ruby and Sass</span>
+                        </h2>
+
+                        <div class="row">
+                            <div class="col-md-11 col-md-offset-1">
+                                <h3>Step 1: Install Ruby</h3>
+                                <ul class="list-unstyled">
+                                    <li><span class="step-heading">Windows</span>
+                                        <ol>
+                                            <li>
+                                                Go to <a href="http://www.rubyinstaller.org" target="_blank">rubyinstaller.org</a>,
+                                                and download and run the provided installer.</li>
+                                            <li>
+                                                Make sure that the Ruby executable is on your system
+                                                <a href="http://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/">PATH</a>.
+                                            </li>
+                                            <li>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                    <li><span class="step-heading">Mac</span>
+                                        <ol>
+                                            <li>Congrats!  You've already got Ruby installed.  Continue to step 2.</li>
+                                        </ol>
+                                    </li>
+                                    <li><span class="step-heading">Linux</span>
+                                        <ol>
+                                            <li>
+                                                Install using your systems package manager.  If you were on Ubuntu, it might look something like this (<em>Note, your package manager
+                                                will more than likely install Ruby version 1.9.1.  At the time of this writing, that **should** work for this tutorial but it is
+                                                highly reccomended to download and build Ruby from sources for a version >= 2.x.x</em>):
+
+                                                <pre><code class="language-bash">$ sudo apt-get install ruby-full
+<!--                                         --># ... a bunch will print out here, just enter 'y' at the prompt to continue
+<!--                                         -->Do you wish to continue? [Y/n] y
+<!--                                         --># More stuff will print here, before returning to the prompt.
+<!--                                         -->$</code></pre>
+
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ul>
+                                <h3>Step 2: Verify Ruby and Gem installation</h3>
+                                <p><em>When you install Ruby, it includes <code>gem</code>, which is the Ruby package manager.</em>  Type the following into your terminal
+                                to verify your Ruby and Gem installation:</p>
+
+                                <pre><code class="languge-bash">$ ruby --version
+<!--                         -->ruby 2.x.xpxxx (201#-##-## revision #####)
+<!--                         -->$ gem --version
+<!--                         -->2.x.x
+<!--                         -->
+<!--                         --># Don't worry about te xs or the #s.  They're placeholders.
+<!--                         --># As long as you see version 2 or greater you should be good.
+<!--                         --># Ruby 1.9.x and gem 1.8.x will probably work but it'd be better to upgrade when you can.</code></pre>
+
+                                <h3>Step 3: Install Sass</h3>
+                                <p>Type the following into the command line to install Sass:</p>
+
+                                <pre><code class="language-bash">$ gem install sass
+<!--                         --># if that doesn't work and you're on a unix based system try:
+<!--                         -->$ sudo install sass</code></pre>
+
+                                <h3>Step 4: Verify Sass installation</h3>
+                                <p>Type the following into the command line to verify your Sass install:</p>
+
+                                <pre><code class="language-bash">># This is what you want to see
+<!--                             -->$ sass -v
+<!--                             -->Sass 3.4.22 (Selective Steve)
+<!--                             -->
+<!--                             --># If you installed a version of Ruby < 2.x.x, you'll probably see the following output:
+<!--                             -->DEPRECATION WARNING:
+<!--                             -->Sass 3.5 will no longer support Ruby 1.9.x.
+<!--                             -->Please upgrade to Ruby 2.0.0 or greater as soon as possible.
+<!--                             -->
+<!--                             -->Sass 3.4.22 (Selective Steve)</code></pre>
+
+                                <br><p>If all of your terminal output matches what you see here, you're good to go!  If not, consider retrying the install process OR visiting the
+                                <a href="#">Part 5</a> of this how-to where you'll find links to the official documentation for the technologies used here.</p>
+                            </div>
+                        </div>
+
+                    </section>
+
+                    <section id="libsass">
+                        <h2 class="sectionTitle">
+                            <span class="glyphicon glyphicon-ok"></span>
+                             Part 3: <span class="sass-emphasis">LibSass and SassC</span>
+                        </h2>
+
+                        <p>For this section you're going to be installing / configurint the <a href="https://github.com/sass/libsass">LibSass</a> library
+                        and the <a href="https://github.com/sass/sassc">SassC</a> wrapper.  As was mentioned previously, LibSass is a C/C++ rewrite of
+                        the Sass engine that provides insanely faster stylesheet compilation.  Additionally, through the use of wrappers, LibSass makes
+                        writing and using Sass stylesheets a more portable option than the native Ruby library.</p>
+                        <p>For our purposes, LibSass will enable us to demonstrate using Sass in the context of a Node.js application and the SassC wrapper
+                        will provide us with the ability to test and confim that we've got LibSass actually working on our system.  Let's begin the install:</p>
+                        <br><p><strong>Please note:</strong> Getting this up and running on a windows system requires that you have Visual Studio Express 2013 or Desktop 2013
+                        installed.  If you don't have a copy, head <a href="https://www.visualstudio.com/post-download-vs/?sku=community&clcid=0x409&telem=ga#">here</a>
+                        (https://www.visualstudio.com/post-download-vs/?sku=community&clcid=0x409&telem=ga#) to snag a copy of Visual Studio Community.</p>
+
+                        <h3>Step 1: Install LibSass / SassC</h3>
+                        <ul class="list-unstyled">
+                            <li>
+                                <span class="step-heading">Windows Install Instructions:</span>
+                                <ol>
+                                    <li>
+                                        Head <a href="https://github.com/sass/sassc/blob/master/docs/building/windows-instructions.md">here</a> and follow the great instructions
+                                        provided by the SassC team.
+                                    </li>
+                                    <li>
+                                        Ensure that your newly built SassC executable is on your system
+                                        <a href="http://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/" target="_blank">PATH</a>. You'll need
+                                        to add the bin folder in the build directory that you specified when following build instructions.
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>
+                                <span class="step-heading">Unix Install Instructions:</span>
+                                <ol>
+                                    <li>
+                                        Head <a href="https://github.com/sass/sassc/blob/master/docs/building/unix-instructions.md">here</a> and follow the simple build
+                                        instructions provided by the SassC team. <strong><em>Important note: </em></strong>As of this writing, the build script used in
+                                        step 3 has a bug.  In order to fix that, you may need to run the following in your terminal before proceeding with step 3:
+
+                                        <pre><code class="language-bash">$ export SASS_LIBSASS_PATH=~/libsass
+<!--                                 -->$ export SASS_SASSC_PATH=~/sassc
+<!--                                 -->$ export SASS_SPEC_PATH=~/sass-spec</code></pre>
+
+                                    </li>
+                                    <li>
+                                        Ensure the newly build executable is added to your <a href="http://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path">PATH</a>.
+                                    </li>
+                                </ol>
+                            </li>
+                        </ul>
+                        <h3>Step 3: Verify LibSass / SassC Installation</h3>
+                        <p>Enter the following into your terminal.  If your output matches, you're good to go!</p>
+                        <pre><code class="language-bash"></code></pre>
+
+                    </section>
+
+                    <section id="node-sass">
+                        <h2 class="sectionTitle">
+                            <span class="glyphicon glyphicon-ok"></span>
+                             Part 2: <span class="sass-emphasis">Node.js and Node-sass</span>
                         </h2>
 
                     </section>
@@ -32,13 +199,14 @@
 
                     <div class="row">
                         <div class="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1">
-                            <a href="#" class="btn btn-lg btn-default btn-block">
+                            <a href="../index.html" class="btn btn-lg btn-default btn-block">
                                 <span class="glyphicon glyphicon-chevron-left"></span>
-                                 Previous:
+                                 Previous: Setup
+                            </a>
                         </div>
-                        <div class="col-md-3 col-md-offset-8 col-sm-3 col-sm-offset-8">
+                        <div class="col-md-3 col-md-offset-4 col-sm-3 col-sm-offset-4">
                             <a href="#" class="btn btn-lg btn-default btn-block">
-                                Next:
+                                Next: Sass Basics
                                 <span class="glyphicon glyphicon-chevron-right"></span>
                             </a>
                         </div>

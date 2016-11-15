@@ -7,3 +7,13 @@ $sass-color: #CF649A;
 .sass-emphasis {
     color: $sass-color;
 }
+
+a {
+    color: $sass-color;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+a.btn {
+    text-decoration: none;
+}

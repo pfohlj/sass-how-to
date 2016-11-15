@@ -4,4 +4,12 @@
 .sass-emphasis {
   color: #CF649A; }
 
+a {
+  color: #CF649A;
+  text-decoration: underline;
+  font-weight: bold; }
+
+a.btn {
+  text-decoration: none; }
+
 /*# sourceMappingURL=index.css.map */
