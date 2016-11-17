@@ -163,12 +163,85 @@
 
                                 <p>
                                     Now that we've got an idea of how to <code>@import</code> code from external files, the next logical step would be to consider how we can 
-                                    reuse the code we've already written in our current file.  If we rephrase the question, we might ask: <em>How can we allow our </em>
+                                    reuse the code we've already written in our current file.  If we rephrase the question, we might ask: <em>How can we allow our new rules
+                                    to inherit from other rulesets we've already created?</em>  This is exactly what the purpose of the <code>@extend</code> operator is!  Before
+                                    we get ahead of ourselves, let's look at some code:  
                                 </p>
 
                                 <h3>Example Code</h3>
 
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <em>// demo5.scss</em>
+                                        <pre class="line-numbers"><code class="language-scss">@import 'demo-partial';
+
+<!--                                 -->.bold-and-underline {
+<!--                                 -->    @extend .bold-class;
+<!--                                 -->    text-decoration: underline;
+<!--                                 -->}
+<!--                                 -->
+<!--                                 -->.bold-underline-border {
+<!--                                 -->    @extend .bold-and-underline;
+<!--                                 -->     border: 1px solid black;
+<!--                                 -->}
+<!--                                 -->
+<!--                                 -->%i-shouldnt-show-up-in-the-css-file {
+<!--                                 -->    background: blue;
+<!--                                 -->}
+<!--                                 -->
+<!--                                 -->%i-should-be-in-css-file {
+<!--                                 -->    @extend .important-class;
+<!--                                 -->}
+<!--                                 -->
+<!--                                 -->#important-thing {
+<!--                                 -->    @extend %i-should-be-in-css-file;
+<!--                                 -->}</code></pre>
+                                    </div>
+                                
+                                    <div class="col-md-6">
+                                        <em>// demo5.css</em>
+                                        <pre class="line-numbers"><code class="language-css">.important-class, #important-thing {
+<!--                                 -->  background-color: #cf649a;
+<!--                                 -->  font-family: Arial, Times, sans-serif; 
+<!--                                 -->}
+<!--                                 -->
+<!--                                 -->.bold-class, .bold-and-underline, .bold-underline-border {
+<!--                                 -->  font-weight: bold;
+<!--                                 -->  font-size: large; 
+<!--                                 -->}
+<!--                                 -->
+<!--                                 -->.bold-and-underline, .bold-underline-border {
+<!--                                 -->  text-decoration: underline; 
+<!--                                 -->}
+<!--                                 -->
+<!--                                 -->.bold-underline-border {
+<!--                                 -->  border: 1px solid black; 
+<!--                                 -->}</code></pre>
+                                    </div>
+                                </div>
+
                                 <h3>Explanation</h3>
+
+                                <p>
+                                    First thing's first, on line 1 of demo5.scss, I've included the partial _demo-partial.scss so we have access to all the goodness
+                                    defined therein.  Next, on line 4 you should see the first new thing: <code class="language-scss">@extend .bold-class;</code>  What you're seeing here
+                                    Sass's way of telling one ruleset to inherit from another.  If you look at lines 6 and 11 in the compiled css (demo5.css), you
+                                    should see that .bold-and-underline occurs on both.  Also, you should see that the rules from <code class="language-css">.bold-class</code> (defined
+                                    in _demo-partial.scss) are included in the compiled output.  This means that you as the developer only need to apply the one class to
+                                    an element you want to style instead of applying multiuple classes to achieve the same result.  You shold also pay attention to 
+                                    line 9 of demo5.scss.  Sass allows you to use nested <code class="language-scss">@extend</code>s, meaning you can <code class="language-scss">@extend</code> 
+                                    a class that <code class="language-scss">@extend</code>s another class. 
+                                </p>
+
+                                <p>
+                                    Now lets take a look at lines 13-23.  You should notice on lines 13 and 17 that the two defined rulesets are preceeded by the percent symbol.  
+                                    That is Sass's way of creating what are called <span class="sass-emphasis">Extend Only Rulesets</span>.  Any extend only rulesets that are 
+                                    <code class="language-scss">@extend</code>ed in your .scss files are automatically compiled and included, and any that you don't use, are left
+                                    in your .scss source. In our case, you should notice that <code>#important-thing</code> gets styled with the rules from <code>.important-class</code> 
+                                    because <code>%i-should-be-in-css-file</code> <code class="language-scss">@extend</code>s <code>.important-class</code>. Writing your code using 
+                                    <code class="language-scss">@extend</code>s helps to cut down on clutter and allows you as the developer to create rulesets that give you 
+                                    greater flexibility.
+                                </p>
 
                                 </div>
                             </div>
@@ -227,7 +300,7 @@
                     <!-- Next and previous buttons -->
                     <div class="row">
                         <div class="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1">
-                            <a href="!FIXME!" class="btn btn-lg btn-default btn-block">
+                            <a href="basics1.html" class="btn btn-lg btn-default btn-block">
                                 <span class="glyphicon glyphicon-chevron-left"></span>
                                  Previous: Sass Basics
                             </a>
