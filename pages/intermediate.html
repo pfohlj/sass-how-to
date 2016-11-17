@@ -257,9 +257,132 @@
 
                                 <h3>Who'se @mixin what?</h3>
 
+                                <p>Our next topic of discussion will be that of the <code class="language-scss">@mixin</code> ("<em>mix in</em>").  <code class="language-scss">@mixin</code>s are 
+                                similar to inheritance and <code class="language-scss">@extend</code>s in that you are using a pre-existing set of rules.  The difference is that
+                                you are not inheriting from some other selector but are instead, adding a set of styles to a new ruleset in your CSS.  <code class="language-scss">@mixin</code>s end
+                                up creating new rulesets in the compiled CSS files and so, should be used resonsibly to avoid cluttering your compiled stylesheet.  Let's take a 
+                                look at some code and then dig into the details!</p>
+
                                 <h3>Example Code</h3>
 
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <em>// demo6.scss</em>
+                                        <pre class="line-numbers"><code class="language-scss">$list-size-definition: 200px, 20px;
+<!--                                 -->$map-size-definition: (height: 300px, border-radius: 5px);
+<!--                                 -->
+<!--                                 -->@mixin giant-strange-text {
+<!--                                 -->    font-size: xx-large;
+<!--                                 -->    font-style: oblique;
+<!--                                 -->    font-weight: 900;
+<!--                                 -->    font-family: fantasy;
+<!--                                 -->}
+<!--                                 -->
+<!--                                 -->@mixin custom-size-thing($height, $border-radius: 10px) {
+<!--                                 -->    height: $height;
+<!--                                 -->    width: $height * 2;
+<!--                                 -->    border-radius: $border-radius;
+<!--                                 -->}
+<!--                                 -->
+<!--                                 -->#some-interesting-element {
+<!--                                 -->    @include giant-strange-text;
+<!--                                 -->}
+<!--                                 -->
+<!--                                 -->#custom-element-1 {
+<!--                                 -->    @include custom-size-thing(100px);
+<!--                                 -->}
+<!--                                 -->
+<!--                                 -->#custom-element-2 {
+<!--                                 -->    @include custom-size-thing($list-size-definition...);
+<!--                                 -->}
+<!--                                 -->
+<!--                                 -->#custom-element-3 {
+<!--                                 -->    @include custom-size-thing($map-size-definition...);
+<!--                                 -->}</code></pre>
+                                    </div>
+                                
+                                    <div class="col-md-6">
+                                        <em>// demo6.css</em>
+                                        <pre class="line-numbers"><code class="language-css">#some-interesting-element {
+<!--                               -->  font-size: xx-large;
+<!--                               -->  font-style: oblique;
+<!--                               -->  font-weight: 900;
+<!--                               -->  font-family: fantasy; 
+<!--                               -->}
+<!--                               -->
+<!--                               -->#custom-element-1 {
+<!--                               -->  height: 100px;
+<!--                               -->  width: 200px;
+<!--                               -->  border-radius: 10px; 
+<!--                               -->}
+<!--                               -->
+<!--                               -->#custom-element-2 {
+<!--                               -->  height: 200px;
+<!--                               -->  width: 400px;
+<!--                               -->  border-radius: 20px; 
+<!--                               -->}
+<!--                               -->
+<!--                               -->#custom-element-3 {
+<!--                               -->  height: 300px;
+<!--                               -->  width: 600px;
+<!--                               -->  border-radius: 5px; 
+<!--                               -->}</code></pre>
+                                    </div>
+                                </div>
+
                                 <h3>Explanation</h3>
+
+                                <p>So whats going on in the above code?  The first things you should notice are the two <code class="language-scss">@mixin</code>
+                                declarations on lines 4 and 11.  The general format for defining a mixin is as follows:</p><br>
+
+                                <pre class="line-numbers"><code class="language-scss">@mixin mixin-name[($argument1[, $argument2[: default-value]])] {
+<!--                         -->  property1: value1;
+<!--                         -->  property2: value2;
+<!--                         -->}</code></pre>
+
+                                <br><p>First you start with the <code class="language-scss">@mixin</code> directive, followed by the mixin name.  You then, follow
+                                that with any optional arguments, and their optional default values.  In the case of our two mixins, <code>giant-strange-text</code>
+                                takes no arguments and <code>custom-size-thing</code> takes arguments for the <code class="language-scss">$height</code>
+                                and the <code class="language-scss">$border-radius</code> of the thing being styled.  Additionally, <code>custom-size-thing</code>
+                                specifies a default value for <code class="language-scss">$border-radius</code> if no value is provided. Lets isolate a 
+                                few interesting lines from demo6.scss and talk about what's going on:</p><br>
+
+                                <em>// demo6.scss</em>
+                                <pre data-start="17" class="line-numbers"><code class="language-scss">#some-interesting-element {
+<!--                         -->    @include giant-strange-text;
+<!--                         -->}</code></pre>
+                                <p>As you can in the above line of code, we using the <code class="language-scss">@include</code> directive to access the styles
+                                that were defined in the <code>giant-strange-text</code> mixin.  This is the most basic way to use mixins in your code.  If you 
+                                look at the generated output on lines 1-6  of demo6.css, you'll notice that all of the styles from <code>giant-strange-text</code>
+                                have been injected into the rule.  This is exactly how <code class="language-scss">@mixin</code>s work.  Think about all the typing you've just saved!</p>
+                                <br>
+
+                                <em>// demo6.scss</em>
+                                <pre data-start="21" class="line-numbers"><code class="language-scss">#custom-element-1 {
+<!--                         -->    @include custom-size-thing(100px);
+<!--                         -->}</code></pre>
+                                <p>This example illustrates how to call <code class="language-scss">@mixin</code>s that take arguments.  because
+                                <code>custom-size-thing</code> provides a default argument for <code class="language-scss">$border-radius</code>, the only 
+                                value we need to provide is for the <code class="language-scss">$height</code> argument.  Once those arguments are passed
+                                into the body of the output, they are assigned directly to <code>height</code> and <code>border-radius</code> and then the results
+                                of the calculation, <code class="language-scss">$height * 2</code> is assigned to the width.  This illustrates the power of 
+                                <code class="language-scss">@mixin</code>s.  Should you ever decide to change this height ratio later, all you'd need to do is
+                                update the <code class="language-scss">@mixin</code> definition and your whole site would be good to go!</p>
+                                <br>
+
+                                <em>// demo6.scss</em>
+                                <pre data-start="25" class="line-numbers"><code class="language-scss">#custom-element-2 {
+<!--                         -->    @include custom-size-thing($list-size-definition...);
+<!--                         -->}
+<!--                         -->
+<!--                         -->#custom-element-3 {
+<!--                         -->    @include custom-size-thing($map-size-definition...);
+<!--                         -->}</code></pre>
+                                <p>Our final example here illustrates how we can pass <code class="language-scss">@mixin</code>s lists and maps that contain
+                                the arguments that we want to be evaluated.  In order to perform this though, we have to perform a little Sass magic by following
+                                the name of the list/map with an elipsis (<code>...</code>).  This tells the Sass compiler to unpack the list/map and pass in
+                                the values in they order they appear.  If you observe the output on lines 14-24 of demo6.css, you should notice that the CSS looks like we had 
+                                typed in the arguments directly.  That's how we know things are working!</p>
 
                                 </div>
                             </div>
@@ -275,9 +398,91 @@
 
                                 <h3>How does a @function function?</h3>
 
+                                <p>
+                                    For our final part of this section, we're going to take a brief look at Sass functions.  If you have any other programming 
+                                    experience, then this should look very familiar to you.  If you don't, then this may be tough to grasp, but don't be worried.
+                                    Using functions is a more advanced feature of Sass and in reality, you probably won't be writing them on a daily basis unless
+                                    you're writing Sass libraries.  Lets look at some code!
+                                </p>
+
                                 <h3>Example Code</h3>
 
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <em>// demo7.scss</em>
+                                        <pre class="line-numbers"><code class="language-scss">$some-random-value: 100px;
+<!--                                 -->
+<!--                                 -->@function multiplyBy($value-to-multiply) {
+<!--                                 -->    @return $value-to-multiply * $multiplier;
+<!--                                 -->}
+<!--                                 -->
+<!--                                 -->$multiplier: 10;
+<!--                                 -->#totally-boring-element {
+<!--                                 -->    height: multiplyBy(2px);
+<!--                                 -->}
+<!--                                 -->
+<!--                                 -->$multiplier: 3;
+<!--                                 -->#a-crazy-cool-element {
+<!--                                 -->    height: multiplyBy($some-random-value);
+<!--                                 -->}</code></pre>
+                                    </div>
+                                
+                                    <div class="col-md-6">
+                                        <em>// demo7.css</em>
+                                        <pre class="line-numbers"><code class="language-css">#totally-boring-element {
+<!--                                 -->  height: 20px; 
+<!--                                 -->}
+<!--                                 -->
+<!--                                 -->#a-crazy-cool-element {
+<!--                                 -->  height: 300px; 
+<!--                                 -->}</code></pre>
+                                    </div>
+                                </div>
+
                                 <h3>Explanation</h3>
+
+                                <p>
+                                    The first thing you shold look at in the above code examples is the function definition that occurs on lines 3-5.  The standard
+                                    syntax for defining functions is as follows:
+                                </p>
+
+                                <pre class="line-numbers"><code class="language-scss">@function functionName([$argument1[, $argument2]]) {
+<!--                         -->  /* Do some work.  Use your (optional) arguments. */
+<!--                         -->  @return $something;
+<!--                         -->}</code></pre>
+
+                                <br><p>
+                                    In our function <code>multiplyBy</code>, we're accepting a single input parameter called <code class="language-scss">$value-to-multiply</code>.
+                                    Then, we're returning that value (<em>presumably a number type</em>) multiplied by a global variable called <code class="language-scss">$multiplier</code>.
+                                    In every case, multiplier needs to be defined in the global scope and should have some value before calling <code>multiplyBy</code>.  You
+                                    don't always have to create functcions that use global variables, but it is worth noting that you <em>can</em> do so if it pleases you. Let's now 
+                                    consider the two ways that we call our function:
+                                </p><br>
+
+                                <pre data-start="7" class="line-numbers"><code class="language-scss">$multiplier: 10;
+<!--                         -->#totally-boring-element {
+<!--                         -->    height: multiplyBy(2px);
+<!--                         -->}</code></pre>
+                                <p>In this examle, we're starting by defining our global multiplier with a value of 10.  This means that any call to <code>multiplyBy</code>
+                                will result in our called value being multiplied by 10.  As you can see on line 3 of demo7.css, the result of 2px * 10 is 20px.  Pretty 
+                                boring right?</p>
+                                <br>
+
+                                <pre data-start="12" class="line-numbers"><code class="language-scss">$multiplier: 3;
+<!--                         -->#a-crazy-cool-element {
+<!--                         -->    height: multiplyBy($some-random-value);
+<!--                         -->}</code></pre>
+                                <p>This example demonstrates that we can call functions using pre-defined variables.  In this case, we're using <code class="language-scss">$some-random-value</code>
+                                and multiplying that by the (<em>recently redefined</em>) <code class="language-scss">$multiplier</code>.  On line 6 of demo7.css, you can see the resulting
+                                value of 300px.</p>
+
+                                <h3>Built in Functions</h3>
+
+                                <p>
+                                    While beyond the scope of this how-to guide, it's worth noting that the vanilla Sass library has a large number of built in functions that you 
+                                    can use.  Some of these build on functions that already exist in CSS and others add in new features.  For more information, check out the
+                                    <a href="http://sass-lang.com/documentation/Sass/Script/Functions.html" target="_blank">official Sass function docs</a>.  
+                                </p>
 
                                 </div>
                             </div>
@@ -291,7 +496,22 @@
                         <div class="row">
                             <div class="col-md-11 col-md-offset-1">
 
-                                !FIXME!
+                                <p><span class="sass-emphasis">Congratulations</span>!  If you've made it this far, you've learned enough to really optimize your stylesheet 
+                                writing prowess.  At this point, you should be able to:</p>
+
+                                <ul>
+                                    <li>Use partials to make your code more modular and easy to maintain.</li>
+                                    <li>Inherit from other styles using the <code class="language-scss">@extend</code> directive.</li>
+                                    <li>Pre-define sets of styles using the <code class="language-scss">@mixin</code> directive.</li>
+                                    <li>Offload work to the Sass compiler by using the <code class="language-scss">@function</code> directive.</li>
+                                </ul>
+
+                                <p>
+                                    At this point, we've covered all the syntax that we're going to look at in terms of the Sass language itself.  While
+                                    If you want to learn more about what Sass has to offer, please consider checking out <code class="language-scss">@if</code>
+                                    statements, <code class="language-scss">@for</code> loops, <code class="language-scss">@each</code> loops,
+                                    and <code class="language-scss">@while</code> loops.
+                                </p>
 
                             </div>
                         </div>
@@ -306,7 +526,7 @@
                             </a>
                         </div>
                         <div class="col-md-3 col-md-offset-4 col-sm-3 col-sm-offset-4">
-                            <a href="!FIXME!" class="btn btn-lg btn-default btn-block">
+                            <a href="libsass.html" class="btn btn-lg btn-default btn-block">
                                 Next: Using LibSass
                                 <span class="glyphicon glyphicon-chevron-right"></span>
                             </a>
