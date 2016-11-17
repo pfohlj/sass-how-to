@@ -54,11 +54,99 @@
                                 <div class='col-md-11 col-md-offset-1'>
 
                                 <h3>Whats a partial anyways?</h3>
+                                
+                                <p>
+                                    So far, to style a new page that we've created, we've had to create an entirely new .scss file and type in all of the styles that
+                                    we want to apply to that given page.  While this has worked so far, what happens if we have a set of styles that we want applied
+                                    to every page in our site?  As you might imagine, copying and pasting from file to file violates the DRY principle.  Using Sass
+                                    partials is our golden ticket!
+                                </p>
+
+                                <p>
+                                    A Sass partial file is any file preceeded by an underscore.  An example file name might look like <code>_someFile.scss</code>. 
+                                    The benefit of Sass partials is that they are not compiled by themselves, but instead are compiled when you <code>@include</code>
+                                    them in another .scss file.  Lets look at an example of this and then talk about whats going on:
+                                </p>
 
                                 <h3>Example Code</h3>
+                                
+                                <em>// _demo-partial.scss</em>
+                                <pre class="line-numbers"><code class="language-scss">// Site wide variables
+<!--                         -->$site-wide-color: rgb(207, 100, 154)
+<!--                         -->$important-fonts: Arial, Times New Roman, Lucidia Console;
+<!--                         -->
+<!--                         -->// Here are some classes I want accessible everywhere
+<!--                         -->.important-class {
+<!--                         -->  background-color: $site-wide-color;
+<!--                         -->  font-family: $important-fonts;
+<!--                         -->}
+<!--                         -->.bold-class {
+<!--                         -->  font-weight: bold;
+<!--                         -->  font-size: large;
+<!--                         -->}</code></pre>
+
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <em>// demo4.scss</em>
+                                        <pre class="line-numbers"><code class="language-scss">// import _demo-partial.scss
+<!--                                 -->@import 'demo-partial';
+                                        
+<!--                                 -->// use some variables from the partial file
+<!--                                 -->#header-text {
+<!--                                 -->    color: $site-wide-color;
+<!--                                 -->    font-family: $important-fonts;
+<!--                                 -->}
+<!---                                --></code></pre>
+                                    </div>
+                                
+                                    <div class="col-md-6">
+                                        <em>// demo4.css</em>
+                                        <pre class="line-numbers"><code class="language-css">.important-class {
+<!--                                 -->background-color: #cf649a;
+<!--                                 -->  font-family: Arial, Times, sans-serif;
+<!--                                 -->}
+<!--                                 -->
+<!--                                 -->.bold-class {
+<!--                                 -->  font-weight: bold;
+<!--                                 -->  font-size: large; 
+<!--                                 -->}
+<!--                                 -->
+<!--                                 -->#header-text {
+<!--                                 -->  color: #cf649a;
+<!--                                 -->  font-family: Arial, Times, sans-serif; 
+<!--                                 -->}</code></pre>
+                                    </div>
+                                </div>
+                                
 
                                 <h3>Explanation</h3>
 
+                                <p>
+                                    So lets take a look at exactly what's going on here.  The first thing I did was create a partial file called 
+                                    <code>_demo-partial.scss</code>.  Aside from the variable declarations on lines 2-3, there's nothing too crazy going on there.
+                                    I then created a file called demo4.scss and thats where the fun really started!  Line 2 of this file introduces something that's special
+                                    about how Sass handles <code>@import</code> compared to plain CSS.  Sass allows you to <code>@import</code> the name of the file 
+                                    without the leading underscore and the file extension, but thats not all that's going on.  
+                                </p>
+
+                                <p>
+                                    Normally when you import files in a CSS document, the browser generates an HTTP request for each <code>@import</code> you use.  Sass changes
+                                    this by precompiling the contents of the partial file before generating the final CSS document.  In doing so, you end up with only 
+                                    one HTTP request for a single stylesheet instead of multiple requests.  This becomes even more handy when your <code>@import</code>ed 
+                                    files also <code>@import</code> other files.
+                                </p>
+
+                                <p>
+                                    You should also notice that <code>@import</code>ing <code>_demo-partial</code> gave me access to any variables that were declared in that 
+                                    file.  On lines 6 and 7 of demo4.scss, I used <code>$site-wide-color</code> and <code>$important-fonts</code>, which had been declared in
+                                    the partial file.
+                                    The advantage you gain from this method of handling <code>@import</code>s is that it makes managing your stylesheets more modular!  Want to
+                                    change the color of <code>$site-wide-color</code> everywhere it's used?  Just update <code>_demo-partial</code> and boom!  Partials make 
+                                    it <em>really</em> easy to write small snippets of Sass and then <code>@import</code> that wherever and whenever you need it!
+                                </p>
+                                
                                 </div>
                             </div>
                     </section>
@@ -72,6 +160,11 @@
                                 <div class='col-md-11 col-md-offset-1'>
 
                                 <h3>@extend where?</h3>
+
+                                <p>
+                                    Now that we've got an idea of how to <code>@import</code> code from external files, the next logical step would be to consider how we can 
+                                    reuse the code we've already written in our current file.  If we rephrase the question, we might ask: <em>How can we allow our </em>
+                                </p>
 
                                 <h3>Example Code</h3>
 
