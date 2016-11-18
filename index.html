@@ -20,11 +20,11 @@
                             <span class="glyphicon glyphicon-question-sign"></span>
                             What is <span class="sass-emphasis">Sass</span>?
                         </h2>
-                        <p>The very first thing we need to to is to address the question of what exactly Sass is.  <a href="http://www.sass-lang.com" target="_blank">Sass</a>
+                        <p>The very first thing we need to to is to address the question of what exactly Sass is.  <a href="http://www.sass-lang.com" target="_blank">Sass</a>,
                         stands for Syntactically Asesome Style Sheets.  <em>"Oh, so sass is just CSS!"</em>, you may be thinking
                         to yourself.  Unfortunately, you're close but not quite there.  What Sass is, is a CSS preprocessor. This means, it lets you write
-                        your CSS using a special syntax called SCSS, and then when you're done, it compiles the SCSS into pure CSS that your browser can
-                        understand. You may be thinking to yourself, "<em>If Sass just compiles into pure CSS, why not just stick with that?</em>"
+                        your CSS using a special syntax called SCSS (Sassy CSS), and when you're done, it compiles the SCSS into pure CSS that your browser can
+                        understand. You may be thinking to yourself, "<em>If Sass just compiles into pure CSS, why not stick with that?</em>"
                         That's a great question! Keep on reading to find out.</p>
                     </section>
 
@@ -34,12 +34,12 @@
                             <span class="glyphicon glyphicon-question-sign"></span>
                             Why should you use <span class="sass-emphasis">Sass</span>?
                         </h2>
-                        <p>Probably the very best reason to use Sass in the first place is CSS itself.  While functional in a get-er-done kind of way, CSS
-                        is often unruly and messy.  Writing the correct chain of selectors can be a headache and remembering the exact combination of hex
-                        or RGB values you used to style a given element requires a lot of copying and pasting or perfect memory.</p>
+                        <p>Probably the best reason to use Sass in the first place is CSS itself.  While functional in a "git-er-done"" kind of way, CSS
+                        can be unruly and messy.  Writing the correct chain of selectors can be a headache and remembering the exact combination of hex
+                        or RGB values you used to style a given element requires a lot of copying and pasting, or perfect memory.</p>
                         <p>CSS is admitedly not a programming language, but if we could introduce some of the ideas that make programming great, writing
                         stylesheets might become a more enjoyable process.  That's exactly where Sass steps in.</p>
-                        <p>Because Sass is compiled into CSS, it can allow for great features like variables, operators, and even functions!  Moreover,
+                        <p>Because Sass is compiled into CSS, it allows for great features like variables, operators, and even functions!  Moreover,
                         The Sass framework allows you to write D.R.Y. stylesheets.  D.R.Y. stands for "Don't Repeat Yourself," and by introducing
                         features normally found in programming languages, Sass helps reduce the amount you actually have to write while styling your
                         sites.</p>
@@ -50,16 +50,16 @@
                             <span class="glyphicon glyphicon-question-sign"></span>
                             Where can you use <span class="sass-emphasis">Sass</span>?
                         </h2>
-                        <p>The compiled results of a SCSS (<em>Throughout this how-to I will refer to Sass and SCSS interchangably</em>) stylesheet can
+                        <p>The compiled results of Sass stylesheet can
                         be used anywhere that normal CSS can be used, because it <em>is</em> normal CSS. In order to get the compiled results of a SCSS
                         stylesheet, you need the Sass compiler.</p>
                         <p>The Sass compiler was originally written in the Ruby programming language, but thanks to the hard work of some talented individuals,
                         Sass has been ported to a C/C++ library known as <a href="http://www.sass-lang.com/libsass" target="_blank">LibSass</a>.  The beauty of LibSass is that
-                        it not only speeds up the compilation of SCSS stylesheets (estimated to be <a href="http://www.moovweb.com/blog/libsass/" target="_blank">4000x faster</a>),
-                        but it also enables integration with myriad other programming languages through wrappers written in the target integration language.  Want to
+                        it not only speeds up the compilation of Sass stylesheets (estimated to be <a href="http://www.moovweb.com/blog/libsass/" target="_blank">4000x faster</a>),
+                        but it also enables integration with many other programming languages through wrappers written in the target language.  Want to
                         use Sass with Node.js? <a href="https://github.com/sass/node-sass" target="_blank">No problem!</a>  Interested in using Sass with C?  <a href="https://github.com/sass/sassc" target="_blank">
                         Easy!</a>  How about PHP?  <a href="https://github.com/sensational/sassphp" target='_blank'>Yup!</a>  As you can see, Not only is Sass useful, but LibSass
-                        makes it incredibly portable and perfet for integrating into any of your projects.</p>
+                        makes it incredibly portable and perfet for integrating with any of your projects.</p>
                     </section>
 
                     <section id="overview">
@@ -69,28 +69,27 @@
                         </h2>
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <a href="#" target="_blank">Section one</a>: Setup, of this guide will cover the setup process.  We'll look at getting the Ruby version of Sass installed as well as the LibSass
-                                library up and running using the Sassc command line wrapper.  Additionally, we'll ensure that you've got everything you need to build
+                                <a href="./pages/setup.html" target="_blank">Section one</a> of this guide will cover the setup process.  We'll look at getting the Ruby version of Sass installed as well as the LibSass
+                                library up and running using the SassC command line wrapper.  Additionally, we'll ensure that you've got everything you need to build
                                 and run a Node.js based web-server that uses Sass. If you're just interested in learning the basic syntax, you can skip this page alltogether.
                             </li>
                             <li class="list-group-item">
-                                <a href="#" target="_blank">Section two:</a> Basic Sass, will cover the basics of SCSS (Sassy CSS) syntax. Here's where the rubber meets the road.  You'll learn about
+                                <a href="./pages/basics1.html" target="_blank">Section two:</a> will cover the basics of SCSS (Sassy CSS) syntax. Here's where the rubber meets the road.  You'll learn about
                                 <code>/* comments */</code>, <code>$variables</code>, operators, nesting, and the rules for using them.  When you finish this part of the how-to guide, you should
-                                be able to look use Sass to accomplish what you already know how to do with plain CSS.
+                                be able to look use Sass to accomplish what you already know how to do with plain CSS more efficiently.
                             </li>
                             <li class="list-group-item">
-                                <a href="#" target="_blank">Section three</a>: Intermediate Sass, will cover some of the intermediate aspects of the Sass language.  The focus here will be on reusing your code and keeping
+                                <a href="./pages/intermediate.html" target="_blank">Section three</a> will cover the intermediate aspects of the Sass language.  The focus here will be on reusing your code and keeping
                                 your stylesheets DRY.  You'll learn about dividing your code into partials and importing those partials into your files.  You learn about the <code>@extend</code>
                                 operator and how styles can inherit from other styles.  Then, you'll learn about the <code>@mixin</code> operator and how to create reusable rulesets that you can
-                                <em>mix</em> into your stylesheets.  Finally, you'll learn a little about the <code>@function</code> operator, how to create your own functions, and where to find out
-                                more about Sass's built in functions.
+                                <code>@include</code> into your stylesheets.  Finally, you'll learn a little about the <code>@function</code> operator and how to create your own functions.
                             </li>
                             <li class="list-group-item">
-                                <a href="#" target="_blank">Section four</a>: Using Wrappers - Node-sass, will take a brief look at using the node-sass wrapper with LibSass.  This is by no means a comprehensive tutorial on
-                                LibSass or node-sass but is intended to illustrate the ways that LibSass can add portability and extensability to vanilla Ruby based Sass.
+                                <a href="./pages/libsass.html" target="_blank">Section four</a> will take a look at using the Node-sass wrapper with LibSass.  This is by no means a comprehensive tutorial on
+                                LibSass or Node-sass but is intended to illustrate one way that LibSass can add portability and extensability to vanilla Ruby based Sass.
                             </li>
                             <li class="list-group-item">
-                                <a href="#" target="_blank">Section five</a>: Additional Resources, will provide links to additional resources on the off chance that you wish to go on and learn more about what Sass really
+                                <a href="./pages/resources.html" target="_blank">Section five</a> will provide links to additional resources you can use to go on and learn more about what Sass really
                                 has to offer.  If you feel like you're getting stuck on some part of this tutorial, feel free to visit this page and search the available resources
                                 for an answer.
                             </li>
@@ -102,25 +101,19 @@
                             <span class="glyphicon glyphicon-warning-sign"></span>
                             Prerequisites
                         </h2>
-                        <p>This tutorial is designed for those who already have experience in HTML, CSS, and some programming.  If you don't know what the DOM is, consider
-                        doing some pre-learning before continuing with this course.  If you've never heard of a "selector" or don't know what a function is, please check
+                        <p>This tutorial is designed for those who already have experience in HTML, CSS, and some programming (especially JavaScript for Section 4).  If you don't know what the DOM is, consider
+                        doing some pre-learning before continuing with this course.  If you've never heard of a "selector," or don't know what a function is, please check
                         out some or all of the following resources:</p>
                         <dl class="dl-horizontal">
                             <dt><a href="http://a.co/99SQVYP" target="_blank">HTML and CSS</a></dt>
                             <dd>HTML and CSS: Design and Build Websites, is a great book by John Ducket that should give you the basic and intermediate understanding that you'll need for this tutorial
                             and more!</dd>
                             <dt><a href="http://eloquentjavascript.net/" target="_blank">Eloquent JavaScript</a></dt>
-                            <dd>Eloquent Javascript is a free book on JavaScript that should provide you not only with a basic understanding of programming, but should
-                            also help propell you forward into further learning.  It can be a little dry sometimes but all in all is a great read!</dd>
+                            <dd>Eloquent Javascript is a free book on JavaScript that should provide you not only with a basic understanding of programming, but 
+                            also help propell you forward into further learning.  It can be a little dry sometimes but all in all, is a great read!</dd>
                         </dl>
                     </section>
                     <div class="row">
-                        <!-- <div class="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1">
-                            <a href="#" class="btn btn-lg btn-default btn-block">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                                Previous
-                            </a>
-                        </div> -->
                         <div class="col-md-3 col-md-offset-8 col-sm-3 col-sm-offset-8">
                             <a href="./pages/setup.html" class="btn btn-lg btn-default btn-block">
                                 Next: Setup

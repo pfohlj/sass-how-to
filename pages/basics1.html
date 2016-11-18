@@ -56,10 +56,10 @@
                                 <div class='col-md-11 col-md-offset-1'>
 
                                 <p>Before digging into the special parts of Sass and it's SCSS syntax, we should quickly cover how exactly they relate
-                                to CSS, because its valid CSS that we after when it really comes down to it.  Keep this in mind as we work through the
+                                to CSS.  After all, its valid CSS that we want when it really comes down to it.  Keep this in mind as we work through the
                                 how-to: <em><strong>All CSS is valid SCSS!</strong></em>  That's right, because you already know CSS, you know SCSS (<em>kinda</em>)!</p>
 
-                                <p>As a quick example check out the following example.  On the left you'll see a file called demo1.scss, and on the right
+                                <p>As a quick example, check out the following code.  On the left you'll see a file called demo1.scss, and on the right
                                 you'll see the result when you compile that using the Sass compiler (demo1.css):</p><br>
 
                                 <div class="row">
@@ -162,9 +162,9 @@
                                 </div>
 
                                 <br><p>So what exactly is going on in the code above?  If you look at <em>lines 2-4</em> of demo2.scss, you'll notice 4 variable
-                                definitions.  Variables in sass are declared using the syntax <code>$variable-name</code>, and can be used anywhere their value
-                                could normally be used.  In this case, <code>$sass-color</code> and <code>$font-stack</code> are used in the definition of the
-                                <code>.sass-emphasis-text</code> style and <code>$main-width</code> is used while styling <code>#main-container</code>.</p>
+                                definitions.  Variables in Sass are declared using the syntax <code class="language-scss">$variable-name</code>, and can be used anywhere their value
+                                could normally be used.  In this case, <code class='language-sass'>$sass-color</code> and <code class="language-scss">$font-stack</code> are used in the definition of the
+                                <code class="language-css">.sass-emphasis-text</code> style and <code class="language-scss">$main-width</code> is used while styling <code class="language-css">#main-container</code>.</p>
 
                                 <p>The benefit of using variables is that you can change the value of the variable in one place in your stylesheet and affect
                                 the styles of any rules using that variable.  This makes maintaining your stylesheets much easier! <br><br> Its worth noting at this
@@ -246,23 +246,23 @@
                                 </div>
 
                                 <br><p>The first thing we should examine in the above code is the way that selectors are nested below other selectors.
-                                Normal CSS falls flat on its face when it comes to matching the format and structure of an html document, but Sass allows
-                                you to write code that more closely matches what you'd find in your html document, and intelligently outputs CSS that
+                                Normal CSS falls flat on its face when it comes to matching the format and structure of an HTML document, but Sass allows
+                                you to write code that more closely matches what you'd find in your HTML document, and intelligently outputs CSS that
                                 is qualified enough to apply the syles correctly.</p>
                                 <p>Now consider whats going on in <em>lines 9-13</em> of demo3.scss and compare them with their output on lines 1-5
                                 of demo3.css.  As we've mentioned before, Sass attempts to help you as the developer keep your style sheets DRY
                                 (<em>Dont Repeat Yourself</em>).  Instead of having to type out background-something, The sass compiler will append
                                 word before the colon (:) to the words in the brackets using a dash.  Less typing!!</p>
-                                <p>next, lets consider line 21:</p>
+                                <p>Next, lets consider line 21:</p>
                                 <pre><code class="language-scss">width: $main-width / 10;</code></pre>
                                 <p>If you look at the resulting width on line 11 of demo3.css, you'll notice that the compiler has divided the value of
-                                <code>$main-width</code> by 10 and output that value.  Sass supports a wide variety of operators like <code>* / + - % == !=</code>
+                                <code class="language-scss">$main-width</code> by 10 and output that value.  Sass supports a wide variety of operators like <code>* / + - % == !=</code>
                                 and for numbers that can be compared to each other, also supports the relational operators <code>< > <= >=</code>.</p>
                                 <p>Finally, we'll consider line 32 of demo3.scss:</p>
                                 <pre><code class="language-scss">&:disabled { ...</code></pre>
                                 <p>The <code>&amp;</code> operator provides a handy way to tell the Sass compiler, "<em>Reference the parent selector.</em>"
                                 As you can see by line 13 of demo3.scss, the compiler generated a selector that sets the background color of a disabled
-                                button that follows and element with the <code>.outside-div</code> class to red.</p>
+                                button that follows an element with the <code>.outside-div</code> class to red.</p>
                                 </div>
                             </div>
                     </section>
@@ -278,7 +278,7 @@
                                     <p>You may be asking yourself at this point, "<em>How can I start using this on my own system?  I do have Sass installed
                                     after all!</em>"  This is a great question and in the following examples, You'll see a few of the most basic ways to compile
                                     and manage .scss files on your local system. If you have any problems running these, please head back to the
-                                    <a href="setup.html">setup</a> page and ensure you've got Sass properly installed.</p>
+                                    <a href="setup.html" target="_blank">setup</a> page and ensure you've got Sass properly installed.</p>
 
                                     <pre><code class="language-bash"># compile a .scss file to a .css file in the current directory
 <!--                             -->$ sass inputFile.scss outputFile.scss
@@ -347,21 +347,3 @@
         <script src='../scripts/prism.js'></script>
     </body>
 </html>
-
-
-<!--
-Some nicely arranged side by side scss / css
-
-<div class="row">
-    <div class="col-md-6">
-        <em>// demo1.scss</em>
-        <pre class="line-numbers"><code class="language-scss"></code></pre>
-    </div>
-
-    <div class="col-md-6">
-        <em>// demo1.css</em>
-        <pre class="line-numbers"><code class="language-css"></code></pre>
-    </div>
-</div>
-
--->

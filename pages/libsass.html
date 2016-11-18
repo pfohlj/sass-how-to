@@ -27,10 +27,10 @@
                         <!-- Basic Introduction to the material -->
                         <p>
                             In this section, we're going to step away from our focus on Sass syntax and look at how we can use Sass outside
-                            the context of our own command line.  We're going to do this by looking at one of the many LibSass wrappers known
+                            the context of our own command line.  We're going to do this by looking at a LibSass wrapper known
                             as Node-sass.  As you might have already guessed, Node-sass is a wrapper that acts as middleware between a Node 
                             server and the LibSass library.  It is highly suggested to follow along with this, typing in each chunk of code
-                            as we go.  For that reason, you should ensure that you've completed the <a href="setup.html">Setup</a> process and
+                            as we go.  For that reason, you should ensure that you've completed the <a href="setup.html" target="_blank">Setup</a> process and
                             that you can access LibSass via SassC on the command line.
                         </p>
 
@@ -125,7 +125,7 @@
 
                                 <p>
                                     If you're in windows, Node-sass requires Visual Studio 2013 WD.  Because you already installed SassC using Visual
-                                    Studio, you should be all good here, but if you have multiple versions installed, the command  you should use to 
+                                    Studio, you should be all good here, but if you have multiple versions installed, the alternate command you should use to 
                                     install Node-sass on Windows is:
                                 </p>
 
@@ -173,7 +173,7 @@
                                 <pre><code class="language-bash">Node-sass app listening on port 8080!; Press Ctrl-C to terminate.</code></pre>
 
                                 <br>
-                                <p>Now open your browser and navigate to <a href="http://localhost:8080">localhost:8080</a> and you shold see a blank page
+                                <p>Now open your browser and navigate to <a href="http://localhost:8080" target="_blank">localhost:8080</a> and you shold see a blank page
                                 with the text "Hello World!"</p>
 
                                 </div>
@@ -191,7 +191,7 @@
                                 <h3>Modifying our server-side code</h3>
 
                                 <p>
-                                    Now that you've got your server code up and running, we need to get into compiling Sass.  To do that, we're going to have to
+                                    Now that you've got your server code up and running, we want to start compiling Sass.  To do that, we're going to have to
                                     make some changes to our server side code.  Go back to your app.js and update it so it matches what you see here 
                                     (<em>additions are highlighted to make it easier to pick out</em>):
                                 </p>
@@ -235,7 +235,7 @@
 
                                 <br>
                                 <p>
-                                    As you should be able to see, there are three new cunks added.  The first occurs on lines 2 and 3, where we not require 
+                                    As you should be able to see, there are three new additions.  The first occurs on lines 2 and 3, where we not require 
                                     <code>node-sass</code> and <code>fs</code>, which is a build in node module for accessing the server's file system.  The second addition occurs on
                                     lines 9 and 10.  Each of these variable definitions is creating a string which represents the absolute path to the file
                                     we'll be reading from (<code>in_file</code>) and the file we'll be writing to (<code>out_file</code>).  The
@@ -277,7 +277,7 @@
 <!--                         --></code>Node-sass app listening on port 8080!; Press Ctrl-C to terminate.</pre>
 
                                 <p>
-                                    Now head to your browser and open <a href="http://localhost:8080">localhost:8080</a>.  You should still see the "Hello World!" 
+                                    Now head to your browser and open <a href="http://localhost:8080" target="_blank">localhost:8080</a>.  You should still see the "Hello World!" 
                                     message but in addition to that, when you return to your terminal, you should see the following output:
                                 </p>
 
@@ -385,7 +385,7 @@
                                 <p>
                                     As you should be able to observe, the new additions occur on 30-34 and on lines 37-42.  The first set of
                                     additions enables us to start serving html documents instead of just plain text.  First, on lines 30-32, I
-                                    create and options object containing the path to the root of the current directory.  This is necessary
+                                    create an options object containing the path to the root of the current directory.  This is necessary
                                     otherwise the <code>sendFile</code> method doesn't know where to look for the file it is sending.  Next, on
                                     line 34, I send the index.html file (<em>we haven't created this yet</em>) and pass in the options object along
                                     with the file name.
@@ -402,8 +402,8 @@
                                 <h3>Creating a basic HTML file and some new Sass</h3>
 
                                 <p>
-                                    In order to use our server the way that we now have it configured, we need to create the index.html file that its going to
-                                    serve.  Additionaly, we're going to want to modify our test.scss file so that it does something a little moore interesting.
+                                    In order to use our server the way that we now have it configured, we need to create the index.html file.  
+                                    Additionaly, we're going to want to modify our test.scss file so that it does something a little moore interesting.
                                     You should now open your text editor and create a new file called index.html.  Also, re-open test.scss and then ensure that
                                     both files match what you find below:
                                 </p>
@@ -424,7 +424,7 @@
 <!--                                 -->&lt;/html&gt;</code></pre>
                                     </div>
                                     <div class="col-md-5">
-                                        <em>// text.scss</em>
+                                        <em>// test.scss</em>
                                         <pre class="line-numbers"><code class="language-scss">$underline-style: underline;
 <!--                                 -->$background-color: #CF649A;
 <!--                                 -->
@@ -448,10 +448,10 @@
                                 <h3>Viewing the finished product</h3>
 
                                 <p>
-                                    Now that you've got your html written and your Sass composed, you can test everything out
+                                    Now that you've got your html written and your Sass spiced up, you can test everything out
                                     by firing up your shiny new server.  You'll want to open your terminal and <code>cd</code>
                                     to your project's directory.  Once there, type in the commands as they appear below, and 
-                                    visit <a href="http://localhost:8080">localhost:8080</a> in your browser.  Your command line
+                                    visit <a href="http://localhost:8080" target="_blank">localhost:8080</a> in your browser.  Your command line
                                     output should match what you see below: 
                                 </p>
 
@@ -506,7 +506,7 @@
                                 <p>
                                     If you tried you best and still couldn't get the app working, you can execute the following commands to download
                                     a copy of the code featured in this part of the how-to, install the required dependencies, and run the app.  
-                                    If your problems were with bad JavaScript, HTML, or SCSS, this will help root them out. <em>Note: this will not 
+                                    If your problems were with bad JavaScript, HTML, or SCSS syntax, this will help root them out. <em>Note: this will not 
                                     fix any issues related to LibSass or SassC not being accessible on your system PATH.</em>
                                 </p>
 
@@ -521,7 +521,7 @@
                                 <br>
                                 <p>
                                     At this point, you know more than enough to use Sass effectively in any context.  The only place to go from here is
-                                    to the official documentation for more learning.  On the next page you'll find links to further reading and documentation.
+                                    to the official documentation for more learning.  On the next page you'll find links to further reading and docs.
                                 </p>
                             </div>
                         </div>

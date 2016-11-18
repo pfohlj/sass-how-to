@@ -26,7 +26,7 @@
 
                         <!-- Basic Introduction to the material -->
                         <p>In this section we're going to be covering some of the more powerful features of Sass.  So
-                        far you've learned enough to help streamline your current process some, but there hasn't been
+                        far you've learned enough to help  your current process some, but there hasn't been
                         anything that's too overwhelmingly awesome.  That's about to change!</p>
 
                         <!-- Bullet point what will be covered -->
@@ -53,7 +53,7 @@
                             <div class='row'>
                                 <div class='col-md-11 col-md-offset-1'>
 
-                                <h3>Whats a partial anyways?</h3>
+                                <h3>Whats a _partial anyways?</h3>
                                 
                                 <p>
                                     So far, to style a new page that we've created, we've had to create an entirely new .scss file and type in all of the styles that
@@ -64,7 +64,7 @@
 
                                 <p>
                                     A Sass partial file is any file preceeded by an underscore.  An example file name might look like <code>_someFile.scss</code>. 
-                                    The benefit of Sass partials is that they are not compiled by themselves, but instead are compiled when you <code>@include</code>
+                                    The benefit of Sass partials is that they are not compiled by themselves, but instead are compiled only when you <code>@include</code>
                                     them in another .scss file.  Lets look at an example of this and then talk about whats going on:
                                 </p>
 
@@ -124,9 +124,9 @@
                                 <h3>Explanation</h3>
 
                                 <p>
-                                    So lets take a look at exactly what's going on here.  The first thing I did was create a partial file called 
+                                    So lets take a look at what's going on here.  The first thing I did was create a partial file called 
                                     <code>_demo-partial.scss</code>.  Aside from the variable declarations on lines 2-3, there's nothing too crazy going on there.
-                                    I then created a file called demo4.scss and thats where the fun really started!  Line 2 of this file introduces something that's special
+                                    I then created a file called demo4.scss, and thats where the fun really started!  Line 2 of this file introduces something that's special
                                     about how Sass handles <code>@import</code> compared to plain CSS.  Sass allows you to <code>@import</code> the name of the file 
                                     without the leading underscore and the file extension, but thats not all that's going on.  
                                 </p>
@@ -143,7 +143,7 @@
                                     file.  On lines 6 and 7 of demo4.scss, I used <code>$site-wide-color</code> and <code>$important-fonts</code>, which had been declared in
                                     the partial file.
                                     The advantage you gain from this method of handling <code>@import</code>s is that it makes managing your stylesheets more modular!  Want to
-                                    change the color of <code>$site-wide-color</code> everywhere it's used?  Just update <code>_demo-partial</code> and boom!  Partials make 
+                                    change the color of <code>$site-wide-color</code> everywhere it's used?  Just update <code>_demo-partial</code> and you're good!  Partials make 
                                     it <em>really</em> easy to write small snippets of Sass and then <code>@import</code> that wherever and whenever you need it!
                                 </p>
                                 
@@ -225,12 +225,12 @@
                                 <p>
                                     First thing's first, on line 1 of demo5.scss, I've included the partial _demo-partial.scss so we have access to all the goodness
                                     defined therein.  Next, on line 4 you should see the first new thing: <code class="language-scss">@extend .bold-class;</code>  What you're seeing here
-                                    Sass's way of telling one ruleset to inherit from another.  If you look at lines 6 and 11 in the compiled css (demo5.css), you
+                                    is Sass's way of telling one ruleset to inherit from another.  If you look at lines 6 and 11 in the compiled css (demo5.css), you
                                     should see that .bold-and-underline occurs on both.  Also, you should see that the rules from <code class="language-css">.bold-class</code> (defined
                                     in _demo-partial.scss) are included in the compiled output.  This means that you as the developer only need to apply the one class to
                                     an element you want to style instead of applying multiuple classes to achieve the same result.  You shold also pay attention to 
                                     line 9 of demo5.scss.  Sass allows you to use nested <code class="language-scss">@extend</code>s, meaning you can <code class="language-scss">@extend</code> 
-                                    a class that <code class="language-scss">@extend</code>s another class. 
+                                    a ruleset that <code class="language-scss">@extend</code>s another ruleset. 
                                 </p>
 
                                 <p>
@@ -351,7 +351,7 @@
                                 <pre data-start="17" class="line-numbers"><code class="language-scss">#some-interesting-element {
 <!--                         -->    @include giant-strange-text;
 <!--                         -->}</code></pre>
-                                <p>As you can in the above line of code, we using the <code class="language-scss">@include</code> directive to access the styles
+                                <p>As you can see in the above line of code, we're' using the <code class="language-scss">@include</code> directive to access the styles
                                 that were defined in the <code>giant-strange-text</code> mixin.  This is the most basic way to use mixins in your code.  If you 
                                 look at the generated output on lines 1-6  of demo6.css, you'll notice that all of the styles from <code>giant-strange-text</code>
                                 have been injected into the rule.  This is exactly how <code class="language-scss">@mixin</code>s work.  Think about all the typing you've just saved!</p>
@@ -455,7 +455,7 @@
                                     In our function <code>multiplyBy</code>, we're accepting a single input parameter called <code class="language-scss">$value-to-multiply</code>.
                                     Then, we're returning that value (<em>presumably a number type</em>) multiplied by a global variable called <code class="language-scss">$multiplier</code>.
                                     In every case, multiplier needs to be defined in the global scope and should have some value before calling <code>multiplyBy</code>.  You
-                                    don't always have to create functcions that use global variables, but it is worth noting that you <em>can</em> do so if it pleases you. Let's now 
+                                    don't always have to create functions that use global variables, but it is worth noting that you <em>can</em> do so if it pleases you. Let's now 
                                     consider the two ways that we call our function:
                                 </p><br>
 
@@ -464,8 +464,7 @@
 <!--                         -->    height: multiplyBy(2px);
 <!--                         -->}</code></pre>
                                 <p>In this examle, we're starting by defining our global multiplier with a value of 10.  This means that any call to <code>multiplyBy</code>
-                                will result in our called value being multiplied by 10.  As you can see on line 3 of demo7.css, the result of 2px * 10 is 20px.  Pretty 
-                                boring right?</p>
+                                will result in our called value being multiplied by 10.  As you can see on line 3 of demo7.css, the result of 2px * 10 is 20px.</p>
                                 <br>
 
                                 <pre data-start="12" class="line-numbers"><code class="language-scss">$multiplier: 3;
@@ -481,7 +480,7 @@
                                 <p>
                                     While beyond the scope of this how-to guide, it's worth noting that the vanilla Sass library has a large number of built in functions that you 
                                     can use.  Some of these build on functions that already exist in CSS and others add in new features.  For more information, check out the
-                                    <a href="http://sass-lang.com/documentation/Sass/Script/Functions.html" target="_blank">official Sass function docs</a>.  
+                                    <a href="http://sass-lang.com/documentation/Sass/Script/Functions.html " target="_blank">official Sass function docs</a>.  
                                 </p>
 
                                 </div>
@@ -541,20 +540,3 @@
         <script src='../scripts/prism.js'></script>
     </body>
 </html>
-
-<!--
-Some nicely arranged side by side scss / css
-
-<div class="row">
-    <div class="col-md-6">
-        <em>// demo1.scss</em>
-        <pre class="line-numbers"><code class="language-scss"></code></pre>
-    </div>
-
-    <div class="col-md-6">
-        <em>// demo1.css</em>
-        <pre class="line-numbers"><code class="language-css"></code></pre>
-    </div>
-</div>
-
--->
