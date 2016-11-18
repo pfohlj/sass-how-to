@@ -60,7 +60,7 @@
                         <p>
                             When you're done with this page, you'll have everything you need to complete this how-to in its entirety.  You may know know
                             what each of the components is for yet but you'll be ready when you need them!  If you decided to skip the installs, have no
-                            fear.  You can follow along with the instructions in this how-to by using <a href="http://www.sassmeister.com" target="_blank">Sassmeister</a>,
+                            fear.  You can follow along with the instructions in this how-to by using <a href="http://www.sassmeister.com" >Sassmeister</a>,
                             an awesome in-browser Sass playground.
                         </p>
                     </section>
@@ -78,11 +78,11 @@
                                     <li><span class="step-heading">Windows</span>
                                         <ol>
                                             <li>
-                                                Go to <a href="http://rubyinstaller.org" target="_blank">rubyinstaller.org</a>,
+                                                Go to <a href="http://rubyinstaller.org" >rubyinstaller.org</a>,
                                                 and download and run the provided installer.</li>
                                             <li>
                                                 Make sure that the Ruby executable is on your system
-                                                <a href="http://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/" target="_empty">PATH</a>.
+                                                <a href="http://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/" >PATH</a>.
                                             </li>
                                         </ol>
                                     </li>
@@ -143,7 +143,7 @@
 <!--                             -->Sass 3.4.22 (Selective Steve)</code></pre>
 
                                 <br><p>If all of your terminal output matches what you see here, you're good to go!  If not, consider retrying the install process OR visiting the
-                                <a href="resources.html" target="_empty">Part 5</a> of this how-to where you'll find links to the official documentation for the technologies used here.</p>
+                                <a href="resources.html" >Part 5</a> of this how-to where you'll find links to the official documentation for the technologies used here.</p>
                             </div>
                         </div>
 
@@ -158,14 +158,14 @@
                         <div class="row">
                             <div class="col-md-11 col-md-offset-1">
                                 <h3>Background Information</h3>
-                                <p>For this section you're going to be installing / configurint the <a href="https://github.com/sass/libsass" target="_empty">LibSass</a> library
-                                and the <a href="https://github.com/sass/sassc" target="_empty">SassC</a> wrapper.  As was mentioned previously, LibSass is a C/C++ rewrite of
+                                <p>For this section you're going to be installing / configurint the <a href="https://github.com/sass/libsass" >LibSass</a> library
+                                and the <a href="https://github.com/sass/sassc" >SassC</a> wrapper.  As was mentioned previously, LibSass is a C/C++ rewrite of
                                 the Sass engine that provides insanely faster stylesheet compilation.  Additionally, through the use of wrappers, LibSass makes
                                 writing and using Sass stylesheets a more portable option than the native Ruby library.</p>
                                 <p>For our purposes, LibSass will enable us to demonstrate using Sass in the context of a Node.js application and the SassC wrapper
                                 will provide us with the ability to test and confim that we've got LibSass actually working on our system.  Let's begin the install:</p>
                                 <br><p><strong>Please note:</strong> Getting this up and running on a windows system requires that you have Visual Studio Express 2013 or Desktop 2013
-                                installed.  If you don't have a copy, head <a href="https://www.visualstudio.com/post-download-vs/?sku=community&clcid=0x409&telem=ga#" target="_empty">here</a>
+                                installed.  If you don't have a copy, head <a href="https://www.visualstudio.com/post-download-vs/?sku=community&clcid=0x409&telem=ga#" >here</a>
                                 (https://www.visualstudio.com/post-download-vs/?sku=community&clcid=0x409&telem=ga#) to snag a copy of Visual Studio Community.</p>
 
                                 <h3>Step 1: Install LibSass / SassC</h3>
@@ -174,12 +174,12 @@
                                         <span class="step-heading">Windows Install Instructions:</span>
                                         <ol>
                                             <li>
-                                                Head <a href="https://github.com/sass/sassc/blob/master/docs/building/windows-instructions.md" target="_empty">here</a> and follow the great instructions
+                                                Head <a href="https://github.com/sass/sassc/blob/master/docs/building/windows-instructions.md" >here</a> and follow the great instructions
                                                 provided by the SassC team.
                                             </li>
                                             <li>
                                                 Ensure that your newly built SassC executable is on your system
-                                                <a href="http://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/" target="_blank">PATH</a>. You'll need
+                                                <a href="http://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/" >PATH</a>. You'll need
                                                 to add the bin folder in the build directory that you specified when following build instructions.
                                             </li>
                                         </ol>
@@ -188,7 +188,7 @@
                                         <span class="step-heading">Unix Install Instructions:</span>
                                         <ol>
                                             <li>
-                                                Head <a href="https://github.com/sass/sassc/blob/master/docs/building/unix-instructions.md" target="_empty">here</a> and follow the simple build
+                                                Head <a href="https://github.com/sass/sassc/blob/master/docs/building/unix-instructions.md" >here</a> and follow the simple build
                                                 instructions provided by the SassC team. <strong><em>Important note: </em></strong>As of this writing, the build script used in
                                                 step 3 has a bug.  In order to fix that, you may need to run the following in your terminal before proceeding with step 3:
 
@@ -198,7 +198,7 @@
 
                                             </li>
                                             <li>
-                                                Ensure the newly build executable is added to your <a href="http://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path" target="_empty">PATH</a>.
+                                                Ensure the newly build executable is added to your <a href="http://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path" >PATH</a>.
                                             </li>
                                         </ol>
                                     </li>
@@ -236,7 +236,7 @@
 <!--                         -->     color: magenta;
 <!--                         -->}</code></pre>
 
-                                <p>If that's what you see, then you're good to go!  If not, check out <a href="resources.html" target="_empty">Part 5</a> of the tutorial for some docs or consider
+                                <p>If that's what you see, then you're good to go!  If not, check out <a href="resources.html" >Part 5</a> of the tutorial for some docs or consider
                                 re-doing the installation process, ensuring you haven't skipped any steps.</p>
                             </div>
                         </div>
@@ -251,7 +251,7 @@
                             <div class='row'>
                                 <div class='col-md-11 col-md-offset-1'>
                                     <h3>Background Information</h3>
-                                    <p>The last thing you're going to need for this how-to guide (<em>If you don't have it already</em>) is <a href="https://www.nodejs.org" target="_empty">Node.js</a>,
+                                    <p>The last thing you're going to need for this how-to guide (<em>If you don't have it already</em>) is <a href="https://www.nodejs.org" >Node.js</a>,
                                     a web server written in JavaScript.  We'll be using Node to demonstrate how LibSass opens up the doors for Sass usage outside of a Ruby or Ruby on
                                     Rails context.  We won't be building anything too crazy here but will cover enough to ensure you get the gist of things.</p>
 
@@ -261,12 +261,12 @@
                                             <span class="step-heading">Windows / Mac Install Instructions:</span>
                                             <ol>
                                                 <li>
-                                                    Thankfully, there is an easy to use installer provided for both operating systems at <a href="https://nodejs.org/en/download/" target="_empty">nodejs.org</a>.
+                                                    Thankfully, there is an easy to use installer provided for both operating systems at <a href="https://nodejs.org/en/download/" >nodejs.org</a>.
                                                     Head over there, download download it, and then run the installer.
                                                 </li>
                                                 <li>
                                                     <strong><em>Windows users only:</em></strong> Ensure that node is on your system
-                                                    <a href="http://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/" target="_empty">PATH</a>.
+                                                    <a href="http://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/" >PATH</a>.
                                                 </li>
                                             </ol>
                                         </li>
@@ -286,7 +286,7 @@
                                                 </li>
                                                 <li>
                                                     If you instlled using a package manager, node shold be on your PATH already.  If not,
-                                                    <a href="http://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path" target="_empty">make sure it is</a>!
+                                                    <a href="http://unix.stackexchange.com/questions/26047/how-to-correctly-add-a-path-to-path" >make sure it is</a>!
                                                 </li>
                                             </ol>
                                         </li>
