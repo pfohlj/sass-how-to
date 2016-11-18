@@ -1,18 +1,21 @@
-body {
-  padding-bottom: 10px; }
-
-.page-title {
-  text-align: center; }
-
 .sass-emphasis {
   color: #CF649A; }
 
-a {
-  color: #CF649A;
-  text-decoration: underline;
-  font-weight: bold; }
+nav.navbar .active > a {
+  background-color: #CF649A; }
 
-a.btn {
-  text-decoration: none; }
+body {
+  padding-top: 50px;
+  padding-bottom: 10px; }
+  body .page-title {
+    text-align: center; }
+  body #main-content a {
+    color: #CF649A;
+    text-decoration: underline;
+    font-weight: bold; }
+  body #main-content a.btn {
+    text-decoration: none;
+    color: black;
+    font-weight: normal; }
 
 /*# sourceMappingURL=index.css.map */

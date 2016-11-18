@@ -1,23 +1,33 @@
 $sass-color: #CF649A;
 
-body {
-    padding-bottom: 10px;
-}
-
-.page-title {
-    text-align: center;
-}
-
 .sass-emphasis {
     color: $sass-color;
 }
 
-a {
-    color: $sass-color;
-    text-decoration: underline;
-    font-weight: bold;
+nav.navbar {
+    .active > a {
+        background-color: $sass-color;
+    }
 }
 
-a.btn {
-    text-decoration: none;
+body {
+    padding-top: 50px;
+    padding-bottom: 10px;
+
+    .page-title {
+        text-align: center;
+    }
+
+    #main-content { 
+        a {
+            color: $sass-color;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        a.btn {
+            text-decoration: none;
+            color: black;
+            font-weight: normal;
+        }
+    }
 }
