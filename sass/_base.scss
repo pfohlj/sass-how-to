@@ -11,7 +11,7 @@ nav.navbar {
 }
 
 body {
-    padding-top: 50px;
+    // padding-top: 50px;
     padding-bottom: 10px;
 
     .page-title {
@@ -29,5 +29,17 @@ body {
             color: black;
             font-weight: normal;
         }
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        padding-top: 100px;
+    }
+}
+
+@media (min-width: 768px ) {
+    body {
+        padding-top: 50px;
     }
 }
